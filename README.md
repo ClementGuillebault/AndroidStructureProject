@@ -10,7 +10,7 @@ Base structure for android project Stack:
 
 Architecture of an android project + example of the stacks used.
 
-Flowable + Room + PagingData : list of users in the db + pagination for display. Each time the table is updated, the observer is triggered.
-Flowable + Room + LiveDataReactiveStreams: updated count of the user table. Each time the table is updated, the observer is triggered.
-Single + Retrofit : Data retrieval from the network (api, etc.)
+Flowable + Room + PagingData : list of users in the db + pagination for display. Each time the table is updated, the observer is triggered. <br/>
+Flowable + Room + LiveDataReactiveStreams: updated count of the user table. Each time the table is updated, the observer is triggered. <br/>
+Single + Retrofit : Data retrieval from the network (api, etc.) <br/>
 And more...
