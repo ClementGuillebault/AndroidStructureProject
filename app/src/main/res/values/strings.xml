@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroidStructureProject</string>
+    <string name="noUsersInDb">No user in database</string>
+    <string name="userChoosing">User choosing: %1$s</string>
+</resources>

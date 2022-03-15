@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/nbOperationTotal"
+        android:title=""
+        android:visibility="gone"
+        app:actionLayout="@layout/menu_item_round"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/example1"
+        android:title="Example 1"
+        app:showAsAction="never|withText" />
+    <item
+        android:id="@+id/example2"
+        android:title="Example 2"
+        app:showAsAction="never|withText" />
+
+</menu>
