@@ -64,5 +64,26 @@ public class UserViewModel extends AndroidViewModel {
     public LiveData<Integer> count() {
         return LiveDataReactiveStreams.fromPublisher(repository.count());
     }
+    
+        /**
+     * Called to get all LocationsList entity from db. If no row in db,
+     * we call api to get LocationList from network.
+     * @param idWarehouse integer
+     * @return Single<List<LocationsListEntity>>
+     */
+    public Single<List<LocationsListEntity>> getLocationList(int idWarehouse) {
+        return repository.getLocationsList(idWarehouse)
+            .subscribeOn(Schedulers.io())
+            .flatMap(locationsListEntities -> {
+                if (locationsListEntities.isEmpty()) {
+                    return repository.getLocationsListFromNetwork(idWarehouse)
+                        .subscribeOn(Schedulers.io())
+                        .doAfterSuccess(locationsListEntities2 -> repository.insert(locationsListEntities2)
+                            .subscribeOn(Schedulers.io())
+                            .subscribe());
+                }
+                return Single.just(locationsListEntities);
+            }).observeOn(AndroidSchedulers.mainThread());
+    }
 
 }
